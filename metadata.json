@@ -1,0 +1,6 @@
+{
+  "name": "Sổ Chi Tiêu",
+  "description": "Ứng dụng theo dõi hóa đơn và chi tiêu hàng ngày theo lịch tháng từ Thứ 2 đến Chủ nhật, tự động tổng hợp chi tiêu theo từng tuần.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

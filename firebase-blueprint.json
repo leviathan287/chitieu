@@ -1,0 +1,66 @@
+{
+  "entities": {
+    "Bill": {
+      "title": "Bill",
+      "description": "A single daily expense record with item name, price in VND, category, payment status, date, and owner ID.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The Firebase Auth UID of the user who owns this expense record.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name or description of the expense item.",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "amount": {
+          "type": "number",
+          "description": "Expense price amount in VND (strictly positive number)."
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Calendar date of the expense in YYYY-MM-DD format.",
+          "minLength": 10,
+          "maxLength": 10,
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+        },
+        "category": {
+          "type": "string",
+          "description": "Expense category classification.",
+          "enum": ["Ăn uống", "Mua sắm", "Học phí", "Du lịch", "Thể thao", "Khác"],
+          "minLength": 1,
+          "maxLength": 32
+        },
+        "isPaid": {
+          "type": "boolean",
+          "description": "Payment status flag: true for paid (Đã thanh toán), false for unpaid (Chưa thanh toán)."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the record was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the record was last updated."
+        }
+      },
+      "required": ["userId", "name", "amount", "date", "category", "isPaid", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/bills/{billId}": {
+      "schema": {
+        "$ref": "#/entities/Bill"
+      },
+      "description": "Collection of daily expense records owned by authenticated users."
+    }
+  }
+}

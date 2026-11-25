@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sổ Chi Tiêu — Theo dõi chi tiêu hàng ngày & tổng kết tuần</title>
+    <meta name="description" content="Ứng dụng theo dõi hóa đơn và chi tiêu hàng ngày theo lịch tháng từ Thứ 2 đến Chủ nhật, tự động tổng hợp chi tiêu theo từng tuần." />
+    <meta property="og:title" content="Sổ Chi Tiêu — Theo dõi chi tiêu hàng ngày & tổng kết tuần" />
+    <meta property="og:description" content="Ứng dụng theo dõi hóa đơn và chi tiêu hàng ngày theo lịch tháng từ Thứ 2 đến Chủ nhật, tự động tổng hợp chi tiêu theo từng tuần." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('sochitieu_theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased selection:bg-emerald-100 selection:text-emerald-900 dark:selection:bg-emerald-900/60 dark:selection:text-emerald-100 transition-colors duration-150">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
